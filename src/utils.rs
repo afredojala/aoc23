@@ -5,15 +5,17 @@ pub fn read_input(day: &u8) -> String {
     fs::read_to_string(path).expect("Something went wrong reading the file")
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub enum Solution {
     U32(u32),
+    U64(u64),
 }
 
 impl Display for Solution {
     fn fmt(&self, f: &mut Formatter<'_>) -> Result<(), Error> {
         match self {
             Solution::U32(value) => write!(f, "{}", value),
+            Solution::U64(value) => write!(f, "{}", value),
         }
     }
 }
